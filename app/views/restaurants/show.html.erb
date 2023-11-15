@@ -1,0 +1,18 @@
+<h1><%= @restaurant.name.capitalize %></h1>
+<p>Welcome to <%= @restaurant.name.capitalize %>!</p>
+<p>We are located in <%= @restaurant.address %> and we serve <%= @restaurant.category %> food.</p>
+<hr>
+<hr>
+<h2>Reviews</h2>
+<hr>
+<%= link_to "New review", new_restaurant_review_path(@restaurant.id) %>
+<hr>
+<% @restaurant.reviews.each do |review| %>
+  <div class="card">
+    <%= review.content %>
+    <br>
+    <%= review.rating %>
+  </div>
+<% end %>
+<hr>
+<%= link_to "Home", restaurants_path %>
